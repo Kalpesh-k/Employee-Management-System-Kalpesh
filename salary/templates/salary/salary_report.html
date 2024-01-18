@@ -1,0 +1,27 @@
+<!-- templates/salary_report.html -->
+{% extends 'base.html' %}
+
+{% block title %}Salary Report{% endblock %}
+
+{% block header %}Salary Report{% endblock %}
+
+{% block content %}
+    <h2>Salary Report</h2>
+    <form method="post" action="{% url 'salary_report' %}">
+        {% csrf_token %}
+        <!-- Add date range filters and any other filters as needed -->
+        <label for="start_date">Start Date:</label>
+        <input type="date" name="start_date" required>
+        <label for="end_date">End Date:</label>
+        <input type="date" name="end_date" required>
+        <button type="submit">Generate Report</button>
+    </form>
+
+    <h3>Department-wise Salary Costs</h3>
+    <ul>
+        {% for department in departments %}
+            <li>{{ department.name }} - Salary Costs: TODO</li>
+            <!-- Replace TODO with the actual calculation of department-wise salary costs -->
+        {% endfor %}
+    </ul>
+{% endblock %}

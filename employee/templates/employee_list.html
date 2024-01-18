@@ -1,0 +1,38 @@
+<!-- employee_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Employee List</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Designation</th>
+                <th>Reporting Manager</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.designation }}</td>
+                <td>
+                    {% if employee.reporting_manager %}
+                        {{ employee.reporting_manager.name }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+                
+                <td>{{ employee.department.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

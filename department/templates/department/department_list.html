@@ -1,0 +1,26 @@
+<!-- employee/templates/department_list.html -->
+
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h2>Department List</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <!-- Add other department fields as needed -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for department in departments %}
+                    <tr>
+                        <td>{{ department.id }}</td>
+                        <td>{{ department.name }}</td>
+                        <!-- Add other department fields as needed -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
